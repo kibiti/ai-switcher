@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chat Switcher</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AI Chat Switcher</h1>
+      <p>Access your favorite AI chatbots with a single search</p>
+    </header>
+    
+    <div class="tabs">
+      <div class="tab active" data-tab="switcher">AI Chat Switcher</div>
+      <div class="tab" data-tab="guide">Instructions</div>
+    </div>
+    
+    <!-- AI Chat Switcher Tab -->
+    <div class="tab-content active" id="switcher-tab">
+      <div class="switcher-container">
+        <h2>AI Chat Engine Switcher</h2>
+        <p class="switcher-description">
+          Enter your query and select an AI chat engine. Engines supporting direct queries will open your search; others will simply open the chat page for you.
+        </p>
+        <form id="search-form">
+          <input type="text" id="search-query" placeholder="What do you want to ask?" required>
+          <button type="submit">Go <i class="fas fa-search"></i></button>
+        </form>
+        <div id="engine-section">
+          <h2 class="section-title">Choose AI Chat Engine</h2>
+          <div class="search-tip">
+            <i class="fas fa-info-circle"></i> Green = pre-filled query supported. Red = manual input after opening.
+          </div>
+          <div class="engine-grid">
+            <button class="engine-btn" data-url="https://chat.openai.com/?q=%QUERY%">
+              <div class="engine-icon" style="background-color: #10a37f;">
+                <i class="fas fa-comments"></i>
+              </div>
+              <div class="engine-info">
+                <div class="engine-name">ChatGPT (OpenAI)</div>
+                <div class="engine-status unsupported">May ignore query parameter</div>
+              </div>
+            </button>
+            <button class="engine-btn" data-url="https://gemini.google.com/?q=%QUERY%">
+              <div class="engine-icon" style="background-color: #EA4335;">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div class="engine-info">
+                <div class="engine-name">Google Gemini</div>
+                <div class="engine-status supported">Supports pre-filled queries</div>
+              </div>
+            </button>
+            <button class="engine-btn" data-url="https://claude.ai/search?q=%QUERY%">
+              <div class="engine-icon" style="background-color: #D4770C;">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <div class="engine-info">
+                <div class="engine-name">Claude AI</div>
+                <div class="engine-status unsupported">May ignore query parameter</div>
+              </div>
+            </button>
+            <button class="engine-btn" data-url="https://copilot.microsoft.com/?q=%QUERY%">
+              <div class="engine-icon" style="background-color: #0078D7;">
+                <i class="fas fa-wind"></i>
+              </div>
+              <div class="engine-info">
+                <div class="engine-name">Microsoft Copilot</div>
+                <div class="engine-status supported">Supports pre-filled queries</div>
+              </div>
+            </button>
+            <button class="engine-btn" data-url="https://www.perplexity.ai/search?q=%QUERY%">
+              <div class="engine-icon" style="background-color: #9333EA;">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="engine-info">
+                <div class="engine-name">Perplexity AI</div>
+                <div class="engine-status supported">Supports pre-filled queries</div>
+              </div>
+            </button>
+            <button class="engine-btn" data-url="https://you.com/search?q=%QUERY%">
+              <div class="engine-icon" style="background-color: #000000;">
+                <i class="fas fa-comment"></i>
+              </div>
+              <div class="engine-info">
+                <div class="engine-name">You.com</div>
+                <div class="engine-status supported">Supports pre-filled queries</div>
+              </div>
+            </button>
+            <button class="engine-btn" data-url="https://www.phind.com/search?q=%QUERY%">
+              <div class="engine-icon" style="background-color: #3B82F6;">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="engine-info">
+                <div class="engine-name">Phind</div>
+                <div class="engine-status supported">Supports pre-filled queries</div>
+              </div>
+            </button>
+            <button class="engine-btn" data-url="https://www.bing.com/search?q=%QUERY%&showconv=1">
+              <div class="engine-icon" style="background-color: #008373;">
+                <i class="fab fa-microsoft"></i>
+              </div>
+              <div class="engine-info">
+                <div class="engine-name">Bing AI Chat</div>
+                <div class="engine-status supported">Supports pre-filled queries</div>
+              </div>
+            </button>
+          </div>
+          <button class="back-btn" id="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Query
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Instructions Tab -->
+    <div class="tab-content" id="guide-tab">
+      <h2>How to Use</h2>
+      <ul>
+        <li>Type any question or prompt in the input box.</li>
+        <li>Click "Go".</li>
+        <li>Select your desired AI chat engine.</li>
+        <li>Engines with green status handle your query directly; red ones may require you to paste your query after opening.</li>
+      </ul>
+      <h2>About</h2>
+      <p>
+        This is a simple AI chat switcher interface for easy, one-stop access to major AI chat platforms.
+      </p>
+      <h2>Tips</h2>
+      <ul>
+        <li>Bookmark this page for fastest access.</li>
+        <li>Add more engines by editing <code>index.html</code>.</li>
+      </ul>
+    </div>
+    
+    <footer>
+      <p>AI Chat Switcher &copy; 2025 | Inspired by <a href="https://kibzgithub7407.github.io/enhanced-via-ai-switcher" target="_blank" style="color: #a0c4ff;">Enhanced VIA AI Switcher</a></p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+          </html>
